@@ -10,6 +10,6 @@ public class 단일조건문_문제6 {
 		// TODO Auto-generated method stub
 		// 대문자 : 65~90  , 소문자 : 97~122
 		
+		
 	}
-
 }

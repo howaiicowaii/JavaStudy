@@ -33,6 +33,7 @@ public class 단일조건문_문제7 {
 				System.out.println("학점 : D");
 			if(grade<6 && grade>0)
 				System.out.println("학점 : F");
+
 //		if(avg>=90 && avg<100)
 //			System.out.println("A");
 //		if(avg>=80 && avg<90)
