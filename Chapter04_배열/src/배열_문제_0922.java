@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 public class 배열_문제_0922 {
 
@@ -72,12 +73,19 @@ public class 배열_문제_0922 {
 //		System.out.print(num[2]+", "+num[4]);
 		
 //	   6-4 10개의 정수를 입력받아 그 중 가장 큰 수를 출력하는 프로그램 
+		
 	
 	// 7. 10명의 컴퓨터 정수를 입력받아 배열에 저장하고 총점과 평균을 구하여
 //		출력하는 프로그램을 작성 
+	
+		
 		
 //	   7-2 5개의 정수를 {95, 75, 85, 100, 50}로 초기화하고 오름차순으로 
 //		정렬하는 프로그램 : 출력예) 50 75 85 95 100
+//		int[] num = {95, 75, 85, 100, 50};
+//		Arrays.sort(num);
+//		System.out.println(Arrays.toString(num));
+//		
 	}
 
 }
