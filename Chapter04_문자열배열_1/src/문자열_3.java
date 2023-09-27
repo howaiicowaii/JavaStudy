@@ -18,6 +18,7 @@ public class 문자열_3 {
 		// => msg= 안했으니 처리는 됐지만 저장은 안되서 원본을 유지한다
 		// 대문자로 변환하는 것은 가끔
 		// 오라클에서 대소문자 구분
+		System.out.println(msg.toLowerCase());
 	}
 
 }
