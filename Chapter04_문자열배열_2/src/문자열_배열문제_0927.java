@@ -6,12 +6,6 @@ public class 문자열_배열문제_0927 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	// 1. 5명의 학생의 국어점수를 받아서 등수를 출력하는 프로그램 작성
-//		int[] arr=new int[5];
-//		int grade;
-//		for(int i=0;i<arr.length;i++)
-//		{
-//			arr[i]=(int)(Math.random()*100)+1;
-//		}
 //		int[] kor=new int[5];
 //		int[] rank=new int[5];
 //		
@@ -41,6 +35,7 @@ public class 문자열_배열문제_0927 {
 //		}
 		
 	// 2. 10개의 임의의 정수를 받아서 최대값,최소값(난수)  구하는 프로그램 작성
+		
 //		int[] arr=new int[10];
 //		int max=0;
 //		int min=100;
@@ -59,6 +54,7 @@ public class 문자열_배열문제_0927 {
 		
 		
 	// 3. 100 개의 난수(0~9)를 발생하여 빈도수를 구하는 프로그램을 작성하시오
+
 //		int[] arr=new int[100];
 //		for(int i=0;i<arr.length;i++)
 //		{
@@ -96,7 +92,8 @@ public class 문자열_배열문제_0927 {
 //			System.out.printf("count[%d]=%d\n",i,count[i]);
 //		}
 		
-	// 4. 10개의 난수를 발생하여 배열에 저장한 후에 인덱스가 1인 곳의 값을 출력하시오.
+	// 4. 10개의 난수를 발생하여 배열에 저장한 후에 인덱스가 1인 곳의 값을 출력하시오.	
+		
 //		int[] arr=new int[10];
 //		int max=0;
 //		int index=0;
@@ -131,6 +128,7 @@ public class 문자열_배열문제_0927 {
 		
 
 	// 6. 10개의 난수를 배열 안의 모든 값을 더하고, 총합과 평균을 출력하시오.
+
 //		int[] arr=new int[10];
 //		int sum = 0;
 //		for(int i=0;i<arr.length;i++)
@@ -158,6 +156,7 @@ public class 문자열_배열문제_0927 {
 //		System.out.printf("평균 : %.2f\n",sum/10.0);
 		
 	// 7. 10개의 난수를 배열에 저장 후에 배열의 인덱스가 3인 곳은 출력하지 말고, 나머지만 출력하시오
+		
 //		int[] arr=new int[10];
 //		for(int i=0;i<arr.length;i++)
 //		{
@@ -187,11 +186,7 @@ public class 문자열_배열문제_0927 {
 //		}
 		
 	// 8. 5개의 난수를 배열에 저장한 후에 인덱스번호 두개를 받아서 값을 교환하는 프로그램을 작성하시오
-//		int[] arr=new int[5];
-//		for(int i=0;i<arr.length;i++)
-//		{
-//			arr[i]=(int)(Math.random()*10)+1;
-//		}
+		
 //		-----------------------------------------
 //		int[] arr=new int[5];
 //		for(int i=0;i<arr.length;i++)
@@ -213,7 +208,8 @@ public class 문자열_배열문제_0927 {
 //		System.out.println(Arrays.toString(arr));
 		
 	// 9,10. char 배열을 생성하여, 알파벳 A~Z까지 대입 후, 출력하시오
-//		     위문제를 역순으로 출력하시오
+//		     위문제를 역순으로 출력하시오		
+		
 //		char[] arr=new char[26];
 //		char c='A';
 //		for(int i=0;i<arr.length;i++)
@@ -229,7 +225,8 @@ public class 문자열_배열문제_0927 {
 //		{
 //			System.out.print(arr[i]);
 //		}
-	// 11. 정수 10개를 입력받아 배열에 저장하고, 배열에 있는 정수 중에서 3의 배수만 출력하시오
+	// 11. 정수 10개를 입력받아 배열에 저장하고, 배열에 있는 정수 중에서 3의 배수만 출력하시오	
+		
 //		int[] arr=new int[10];
 //		// 초기값 
 //		for(int i=0;i<arr.length;i++)
