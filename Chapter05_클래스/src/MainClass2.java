@@ -2,7 +2,7 @@ class Card
 {
 	String type;
 	int number; // 1 => A  11 => J 
-	static int width,height;
+	static int width,height; // 클래스 변수 
 	
 //	Card()
 //	{
