@@ -61,6 +61,7 @@ public class MainClass2 {
 					(std[i].kor+std[i].eng+std[i].math/3.0));
 		}
 		
+		
 	}
 
 }

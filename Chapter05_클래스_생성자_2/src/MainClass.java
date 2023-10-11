@@ -182,7 +182,7 @@
 	    {
 	    	if()
 	    	 return;
-	    	 // 코드 사용이 불가능 (return 밑)
+	    	 // 여긴 코드 사용이 불가능 (return 밑)
 	    	else
 	    	 return;
 	    }
