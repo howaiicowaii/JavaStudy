@@ -130,7 +130,7 @@ import java.util.*;
 abstract class 도형 
 {
 	// 선 , 사각형 , 삼각형 , 원... (뭘 그릴지 모르니 선언만 하고 너희가 구현해라 st...)
-	public abstract void draw(); // 추상 메소드 : 선언만 
+	public abstract void draw(); // 추상 메소드 : 선언만 (추상클래스엔 추상메소드를 포함)
 	public void select()
 	{
 		System.out.println("검정색을 사용한다");
