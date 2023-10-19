@@ -43,20 +43,20 @@ public class MainClass_3 {
 		System.out.print("정수 입력:");
 		String s2=sc.next();
 		
-		int[] arr=new int[2];
-		arr[0]=Integer.parseInt(s1);
-		arr[1]=Integer.parseInt(s2);
-		
-		int result=arr[0]/arr[1];
-		System.out.println("result="+result);
+//		int[] arr=new int[2];
+//		arr[0]=Integer.parseInt(s1);
+//		arr[1]=Integer.parseInt(s2);
+//		
+//		int result=arr[0]/arr[1];
+//		System.out.println("result="+result);
 		try
 		{
-//			int[] arr=new int[2];      => UnCheckException 
-//			arr[0]=Integer.parseInt(s1);
-//			arr[1]=Integer.parseInt(s2);
-//			
-//			int result=arr[0]/arr[1];
-//			System.out.println("result="+result);
+			int[] arr=new int[2];    //  => UnCheckException 
+			arr[0]=Integer.parseInt(s1);
+			arr[1]=Integer.parseInt(s2);
+			
+			int result=arr[0]/arr[1];
+			System.out.println("result="+result);
 		}catch(NumberFormatException e)
 		{
 			System.out.println("정수 변환을 할 수 없습니다");
