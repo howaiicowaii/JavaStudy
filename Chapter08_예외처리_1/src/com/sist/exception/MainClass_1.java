@@ -96,7 +96,6 @@ package com.sist.exception;
      
 */
 import javax.swing.*;
-
 import com.sist.main.MainClass_2;
 class A
 {
