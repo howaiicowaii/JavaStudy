@@ -2,7 +2,7 @@ package com.sist.exception;
 // 예외처리의 기본 267p
 /*
 	가장 많이 사용된다 => 예외복구 
-	try ~ catch
+	try ~ catch => 예외복구
 	1) 형식 
 	   try
 	   {
