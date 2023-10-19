@@ -99,7 +99,7 @@ import javax.swing.*;
 import com.sist.main.MainClass_2;
 class A
 {
-	public void aaa() {System.out.println("A:aaa()");}
+	public void aaa() {System.out.println("A:aaa()");} 
 }
 class B extends A
 {
@@ -120,7 +120,7 @@ public class MainClass_1 extends JFrame{
 		
 		// TODO Auto-generated method stub
 //		A a=new A();
-//		B b=(B)a;
+//		B b=new B();
 //		System.out.println(Integer.parseInt(" 10")); // 공백 => 에러 
 		
 //		int[] arr=new int[2];
