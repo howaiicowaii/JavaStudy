@@ -33,7 +33,7 @@ public class MainClass_4 extends JFrame implements ActionListener{
 	// 난수 
 	int com; // 0 (따로 초기화 필요없다 null 값이 아니니깐)
 	
-	// 초기화 해줘야 한다 ==> 생성자 
+	// 초기화 해줘야 한다 ==> 생성자  // static 이면 초기화 블록 사용
 	public MainClass_4()
 	{
 		tf=new JTextField(10);
