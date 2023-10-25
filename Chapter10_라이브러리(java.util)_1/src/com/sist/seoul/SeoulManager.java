@@ -47,7 +47,7 @@ public class SeoulManager {
 			
 		}catch(Exception ex) 
 		{
-			ex.printStackTrace();
+			ex.printStackTrace(); // 예외발생시 메소드에 있던 정보+예외 메세지 출력 
 		}
 		finally
 		{

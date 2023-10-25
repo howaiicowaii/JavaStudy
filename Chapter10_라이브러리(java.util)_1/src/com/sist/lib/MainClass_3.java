@@ -1,7 +1,6 @@
 package com.sist.lib;
 /*
 	Random 클래스 
-	
 */
 import java.util.*;
 /*
@@ -36,7 +35,7 @@ public class MainClass_3 {
 //		Set set=new HashSet(); // Set = 중복 다 제거해준다 
 		for(int i=1;i<=day;i++)
 		{
-			int rr=r.nextInt(31)+1;
+			int rr=r.nextInt(31)+1; // 1~31
 			System.out.println(rr+" ");
 //			set.add(rr);
 		}

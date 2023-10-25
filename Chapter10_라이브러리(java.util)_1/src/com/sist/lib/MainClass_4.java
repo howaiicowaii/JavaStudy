@@ -46,6 +46,7 @@ public class MainClass_4 {
 		// 가변 배열 
 		// 작은 배열을 만들 때 
 		int[] subArr=Arrays.copyOf(arr, 3);
+//		int[] subArr=Arrays.copyOf(arr, 3);
 		System.out.println(Arrays.toString(subArr));
 		// 큰 배열로 변경할 때 
 		int[] subArr2=Arrays.copyOf(arr, 10); // 7개 넘어가고 남은 건 0 으로 출력
