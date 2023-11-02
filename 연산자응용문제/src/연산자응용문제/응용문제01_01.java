@@ -10,10 +10,28 @@ public class 응용문제01_01 {
 //	     삼항연산자를 이용해서 구현하시오  ==> 총페이지 만들 때 사용
 		
 		Scanner scan = new Scanner(System.in);
+		System.out.println("농구공 갯수 : ");
+		int ball = scan.nextInt();
+		System.out.println(ball%5==0 ? +(ball/5) : (ball/5)+1);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		// 모범답안
+		Scanner scan = new Scanner(System.in);
 		System.out.println("농구공 갯수 :");
 		int count = scan.nextInt();
 		System.out.println("필요한 상자의 수 : "+(count%5==0?count/5:count/5+1));
-		
+		*/
 		
 		/*
 		Scanner scan = new Scanner(System.in);
