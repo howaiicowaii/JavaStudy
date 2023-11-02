@@ -160,6 +160,11 @@ public class MainClass_1 {
 					new FileInputStream("/Users/maclovin/git/genie.txt");
 			BufferedReader in=
 					new BufferedReader(new InputStreamReader(fis));
+//			FileReader fis=
+//					new FileReader("/Users/maclovin/git/genie.txt");
+//			BufferedReader in=
+//					new BufferedReader(fis);
+//			System.out.println(in);
 			     // InputStream => FileInputStream , URL 
 			// 필터 스트림 ==> 1byte를 읽어서 => 2byte로 변환해서 사용 
 			// Input 을 Reader 로 바꿔준다 
@@ -171,7 +176,7 @@ public class MainClass_1 {
 				{
 					break;
 				}
-				data+=s;
+				data+=s+"\r\n";
 			}
 			in.close();
 			System.out.println(data);
