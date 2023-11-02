@@ -63,50 +63,7 @@ public class MovieManager {
 				}catch(Exception ex) {}
 			}
 		}
-//		static {
-//			FileReader fr=null;
-//			ObjectOutputStream ois=null;
-//			FileOutputStream fis=null;
-//			try {
-//				fr=new FileReader("c:\\java_data\\movie_netflix.txt");
-//				String data="";
-//				int i=0;
-//				while((i=fr.read())!=-1) {
-//					data+=(char)i;
-//				}
-//				fr.close();
-//				
-//				String[] cates=data.split("\n");
-//				for(String s:cates) {
-//					StringTokenizer st=new StringTokenizer(s,"|"); // 파일의 인코딩이 UTF-8일때 오류가 남 ==> 다른이름으로 저장=> ANSI로 저장 => 해결
-//					MovieNetflixVO vo=new MovieNetflixVO();
-//					vo.setTitle(st.nextToken());
-//					vo.setImage(st.nextToken());
-//					vo.setRegdate(st.nextToken());
-//					vo.setGenre(st.nextToken());
-//					vo.setNation(st.nextToken());
-//					vo.setGrade(st.nextToken());
-//					vo.setTime(st.nextToken());
-//					vo.setScore(st.nextToken());
-//					vo.setMake_share(st.nextToken());
-////					String[] ss=s.split("\\|");
-////					FoodCategoryVO 
-//					nList.add(vo);
-//				}
-//				
-//				fis=new FileOutputStream("c:\\java_data\\nc.txt");
-//				ois=new ObjectOutputStream(fis);
-//				ois.writeObject(nList);
-//				
-//			}catch(Exception ex){
-//				ex.printStackTrace();
-//			}finally {
-//				try {
-//					fis.close();
-//					ois.close();
-//				}catch(Exception ex) {}
-//			}
-//		}
+
 		public ArrayList<MovieReservationVO> MovieReservationData(int no){
 			ArrayList<MovieReservationVO> list=new ArrayList<MovieReservationVO>();
 			int start=0;
@@ -146,39 +103,7 @@ public class MovieManager {
 			   }
 			   return vo;
 		   }
-//		   public ArrayList<MovieReservationVO> MovieFindData(String title)
-//		   {
-//			   ArrayList<MovieReservationVO> list=
-//					   new ArrayList<MovieReservationVO>();
-//			   
-//			   for(MovieReservationVO mvo:mList)
-//			   {
-//				   if(mvo.getTitle().contains(title))
-//				   {
-//					   if (list.size() == 0 )
-//						   list.add(mvo);
-//					   else {
-//					   for(MovieReservationVO lst:list) {
-//						   if(!(lst.getTitle().equals(mvo.getTitle())))
-//							   list.add(mvo);
-//					   }
-//					   }
-//				   }
-//			   }
-//			   return list;
-//		   }
-//		 public ArrayList<MovieReservationVO> MovieFindData(String title){
-//			   ArrayList<MovieReservationVO> list=new ArrayList<MovieReservationVO>();
-//			   for(int i=0;i<mList.size();i++) {
-//				   if(mList.get(i).getTitle().con)
-//			   }
-//			   for(MovieReservationVO mvo:mList) {
-//				   if(mvo.getTitle().contains(title)) {
-//					   list.add(mvo);
-//				   }
-//			   }
-//			   return list;
-//		   }
+
 		 public ArrayList<MovieReservationVO> MovieFindData(String title){
 			   ArrayList<MovieReservationVO> list=new ArrayList<MovieReservationVO>();
 			   for(MovieReservationVO mvo:mList) {
