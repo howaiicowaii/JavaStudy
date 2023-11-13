@@ -81,6 +81,7 @@ package com.sist.dao;
 	
 */
 import java.util.*; // Date
+import java.security.AlgorithmParametersSpi;
 import java.sql.*; // Connection / PreparedStatement / ResultSet
 public class EmpDAO {
 	// 네트워크 => 자바응용프로그램(클라이언트) <===> 오라클 (서버)
@@ -133,7 +134,7 @@ public class EmpDAO {
 			getConnection();
 			// 2. SQL 문장 제작 
 			String sql="SELECT empno,ename,job,hiredate,sal "
-					 + "FROM emp";
+					 + "FROM emp"; // 문장 마지막 세미콜론 자동으로 생성
 			// 3. SQL 문장을 오라클로 전송 
 			ps=conn.prepareStatement(sql); 
 			// 4. 결과값을 받는다 
@@ -166,6 +167,181 @@ public class EmpDAO {
 		finally
 		{
 			// 닫기 
+			disConnection();
+		}
+	}
+	// 사원의 이름,직위,급여,입사일,성과급 => 성과급이 없는 사원의 목록 출력
+	public void empNotCommListData()
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT ename,job,hiredate,sal,comm "
+					 + "FROM emp WHERE comm IS NULL";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getString(2)+" "
+						+rs.getDate(3)+" "
+						+rs.getInt(4)+" "
+						+rs.getInt(5));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	
+	public void empCommListData()
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT ename,job,sal,hiredate,comm "
+				  	 + "FROM emp WHERE comm IS NOT NULL AND comm<>0";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getString(2)+" "
+						+rs.getInt(3)+" "
+						+rs.getDate(4)+" "
+						+rs.getInt(5));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	// 사용자로부터 검색어를 받아서 검색
+	public void empFindData(String ename)
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT ename,job,hiredate,sal "
+					+ "FROM emp "
+					+ "WHERE ename LIKE '%'||?||'%'"; // SQL 문장이 자바와 오라클에서 유일하게 다른 
+			ps=conn.prepareStatement(sql);
+			// => ? 에 값을 채운 후에 실행 요청을 해야한다
+			ps.setString(1, ename);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getString(2)+" "
+						+rs.getDate(3)+" "
+						+rs.getInt(4));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	// -- RPAD
+	public void empRpadData()
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT ename, RPAD(SUBSTR(ename,1,2),LENGTH(ename),'*') "
+					+ "FROM emp";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getString(2));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	public void empSalInfoData()
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT ename,ROUND(MONTHS_BETWEEN(SYSDATE,hiredate)),"
+					+ "       TO_CHAR(sal,'$999,999'),"
+					+ "       TO_CHAR(sal*12,'$999,999'),TO_CHAR(sal+NVL(comm,0),'$999,999'),"
+					+ "       TO_CHAR(hiredate,'YYYY-MM-DD HH24:MI:SS') "
+					+ "FROM emp";
+			ps=conn.prepareStatement(sql);
+			// TO_CHAR => 문자열로 변환 => rs.getString 을 이용한다 
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getInt(2)+" "
+						+rs.getString(3)+" "
+						+rs.getString(4)+" "
+						+rs.getString(5)+" "
+						+rs.getString(6));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	
+	public void empGroupByData()
+	{
+		try
+		{
+			getConnection();
+			String sql="SELECT TO_CHAR(hiredate,'YYYY'),COUNT(*),SUM(sal),"
+					+ "       AVG(sal),MAX(sal),MIN(sal) "
+					+ "FROM emp "
+					+ "GROUP BY TO_CHAR(hiredate,'YYYY') "
+					+ "ORDER BY 1 ASC";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1)+" "
+						+rs.getInt(2)+" "
+						+rs.getInt(3)+" "
+						+rs.getDouble(4)+" "
+						+rs.getInt(5)+" "
+						+rs.getInt(6));
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
 			disConnection();
 		}
 	}
