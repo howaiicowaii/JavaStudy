@@ -18,6 +18,7 @@ public class MovieManager {
 					data+=(char)i;
 				}
 				fr.close();
+
 				
 				int k = 0;
 				String[] cates=data.split("\n");
@@ -36,7 +37,10 @@ public class MovieManager {
 					vo.setMake_share(st.nextToken());
 
 					mList.add(vo);
+					
 				}
+				
+			
 
 				
 			}catch(Exception ex){
