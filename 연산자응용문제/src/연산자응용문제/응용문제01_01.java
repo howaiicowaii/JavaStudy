@@ -18,6 +18,24 @@ public class 응용문제01_01 {
 		
 		/*
 		Scanner scan = new Scanner(System.in);
+		System.out.println("농구공 갯수 : ");
+		int ball = scan.nextInt();
+		System.out.println(ball%5==0 ? +(ball/5) : (ball/5)+1);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		// 모범답안
+		Scanner scan = new Scanner(System.in);
 		System.out.println("농구공 갯수 :");
 		int count = scan.nextInt();
 		System.out.println("필요한 상자의 수 : "+(count%5==0?count/5:count/5+1));
