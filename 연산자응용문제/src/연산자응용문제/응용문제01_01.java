@@ -9,6 +9,14 @@ public class 응용문제01_01 {
 //		 농구공 5개씩 한 박스에 들어간다. 40개면 8상자,26개면 6상자이다 
 //	     삼항연산자를 이용해서 구현하시오  ==> 총페이지 만들 때 사용
 		
+			Scanner scan = new Scanner(System.in);
+			System.out.print("농구공 갯수 입력 : ");
+			int ball = scan.nextInt();
+			System.out.println("박스 갯수 : " + (ball % 5 == 0 ? ball/5 : (ball/5)+1));
+			
+		
+		
+		/*
 		Scanner scan = new Scanner(System.in);
 		System.out.println("농구공 갯수 : ");
 		int ball = scan.nextInt();
