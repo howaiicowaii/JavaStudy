@@ -79,7 +79,7 @@ public class dogLoseMain {
 				
 				// 글 정보 
 				Elements infoo=doc1page.select("div.main div.about-info p.para");
-//				System.out.println(infoo);
+				System.out.println(infoo);
 				String info=infoo.text();
 				System.out.println(info);
 
