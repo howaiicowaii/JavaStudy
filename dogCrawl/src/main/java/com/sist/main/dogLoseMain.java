@@ -13,7 +13,7 @@ public class dogLoseMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<String> list=new ArrayList<String>();
-
+ 
 		for(int k=2;k<=4;k++) // 도스창에 제한이 있는지 15페이지만 출력되서 혹시 몰라 2~16페이지만
 		{
 		try
