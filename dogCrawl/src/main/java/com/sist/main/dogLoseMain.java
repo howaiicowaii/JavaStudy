@@ -32,7 +32,7 @@ public class dogLoseMain {
 			
 			// 목록 사진 ( <img.src 만 출력하는 법.. )
 			Elements image=doc.select("div.gallery img");
-//			System.out.println(image);
+			System.out.println(image);
 			
 			for(int i=0;i<sub.size();i++)
 			{
