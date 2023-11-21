@@ -18,7 +18,7 @@ public class loseCatMain {
 			Document doc=Jsoup.connect("http://www.angel.or.kr/index.php?code=cat&page="+k+"&ski=&sci=&sco=&sgu=&q=").get();
 			Elements link=doc.select("div.wrapper div.gallery a"); // 2~38p 상세보기들
 //			System.out.println(link);
-			// 첫번째 칸 (실종)
+			// 첫번째 칸 (실종) 
 			Elements sub=doc.select("div.wrap h3");
 //			System.out.println(sub);
 			

@@ -24,7 +24,7 @@ public class loseDogMain {
 //		System.out.println(link);
 		// 첫번째 칸 (실종)
 		Elements sub=doc.select("div.wrap h3");
-//		System.out.println(sub);
+//		System.out.println(sub); 
 		
 		// 두번째칸 내용 
 		Elements content=doc.select("p.para");
