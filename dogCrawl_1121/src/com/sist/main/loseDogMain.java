@@ -21,7 +21,7 @@ public class loseDogMain {
 		{
 		Document doc=Jsoup.connect("http://www.angel.or.kr/index.php?code=dog&page="+k+"&ski=&sci=&sco=&sgu=&q=").get();
 		Elements link=doc.select("div.wrapper div.gallery a"); // 2~38p 상세보기들
-		System.out.println(link);
+//		System.out.println(link);
 		// 첫번째 칸 (실종)
 		Elements sub=doc.select("div.wrap h3");
 //		System.out.println(sub); 
@@ -32,7 +32,7 @@ public class loseDogMain {
 		
 		// 목록 사진 
 		Elements image=doc.select("div.gallery img");
-		System.out.println(image);
+//		System.out.println(image);
 		
 		for(int i=0;i<sub.size();i++)
 		{
@@ -55,6 +55,7 @@ public class loseDogMain {
 //			System.out.println(sublink2); // sublink2 가 상세주소
 
 			Document doc2=Jsoup.connect(sublink2).get();
+//			System.out.println(doc2);
 			
 //			상세보기 - 위 제목,	정보 + 고유번호 
 			// 고유번호 -> 겹쳐서 나오는 값들 있어서 미뤄놓기..
@@ -65,7 +66,7 @@ public class loseDogMain {
 			
 			// 제목 Done
 			Elements titleDet=doc2.select("div.main h2.style");
-//			System.out.println(posterDet);
+//			System.out.println(titleDet);
 			String posterr=titleDet.text();
 			String detatitle=posterr.substring(posterr.indexOf("("));
 //			System.out.println(detatitle); // detatitle 이 상세보기 title
