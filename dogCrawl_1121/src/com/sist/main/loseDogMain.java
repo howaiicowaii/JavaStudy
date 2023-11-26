@@ -97,7 +97,7 @@ public class loseDogMain {
 			dvo2.setLoseloc(third); // 상세 실종장소 VO
 			
 			String fourth=anid.substring(anid.indexOf("특이사항")+5);
-//			System.out.println(fourth);
+			System.out.println(fourth);
 			dvo2.setFeature(fourth); // 상세 특이사항 VO
 			
 			

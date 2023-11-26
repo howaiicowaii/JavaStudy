@@ -25,7 +25,7 @@ public class keepAnimalMain {
 		
 		// 목록 : 분류(지역),제목,글쓴이,날짜,조회수
 		// 상세.기 : 발견장소,발견날짜,보호자연락처,사진,내용,
-		// 한개VO => 고유번호,지역,제목,글쓴이,날짜,사진,내용 (댓글기능)
+		// 한개VO => 고유번호,지역,제목,발견장소,글쓴이,날짜,사진,내용 (댓글기능)
 		
 		// 지역 
 		Elements kloc=doc.select("td.cate");
@@ -94,7 +94,7 @@ public class keepAnimalMain {
 			Elements kfl=doc2.select("tr.bg1:eq(0) td");
 //			System.out.println(kfl);
 			kavo.setKeepFoundLoc(kfl.get(i).text());
-			System.out.println(kavo.getKeepFoundLoc());
+//			System.out.println(kavo.getKeepFoundLoc());
 
 			
 			////// 11/24 link2 는 문제 없는 듯한데 상세 데이터들 못긁어오는 중ㅠㅠ 
