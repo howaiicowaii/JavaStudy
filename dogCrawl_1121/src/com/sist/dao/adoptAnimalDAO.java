@@ -1,16 +1,16 @@
 package com.sist.dao;
 import java.util.*;
 
-import com.sist.vo.keepAnimal2VO;
+import com.sist.vo.adoptAnimalVO;
 
 import java.sql.*;
-public class keepAnimal2DAO {
+public class adoptAnimalDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 	private final String URL="jdbc:oracle:thin:@211.238.142.102:1521:XE";
-	private static keepAnimal2DAO dao; // 싱글턴 만들 때 쓰는 방식 
+	private static adoptAnimalDAO dao; // 싱글턴 만들 때 쓰는 방식 
 	// 드라이버 등록 => 한번만 생성 (생성자에서 생성)
-	public keepAnimal2DAO()
+	public adoptAnimalDAO()
 	{
 		try
 		{
@@ -36,18 +36,18 @@ public class keepAnimal2DAO {
 		}catch(Exception ex) {}
 	}
 	// 싱글턴 패턴 => 메모리 공간 1개 생성
-	public static keepAnimal2DAO newInstance()
+	public static adoptAnimalDAO newInstance()
 	{
 		// 라이브러리 => newInstance(),getInstance() =>싱글턴 
 		if(dao==null) // 한번만 생성한다 
-			dao=new keepAnimal2DAO();
+			dao=new adoptAnimalDAO();
 		return dao;
 	}
 	// 기능 설정 
 	// => 목록(table) => 인라인뷰 로 페이지 설정
-	public List<keepAnimal2VO> keepAnimal2ListData(int page)
+	public List<adoptAnimalVO> adoptAnimalListData(int page)
 	{
-		List<keepAnimal2VO> list=new ArrayList<keepAnimal2VO>();
+		List<adoptAnimalVO> list=new ArrayList<adoptAnimalVO>();
 		// FoodVO = ROW
 		try
 		{
@@ -62,9 +62,9 @@ public class keepAnimal2DAO {
 //					+ "FROM (SELECT aano,sub,image,content,rownum as num "
 //					+ "FROM (SELECT /*+ INDEX_ASC(loseAni adoptAnimal_aano_pk)*/aano,sub,image,content "
 //					+ "WHERE num BETWEEN ? AND ?";
-			String sql="SELECT kano,keepLoc,keepTitle,keepWriter,"
-					+ "keepRegDate,keepFoundLoc,keepImage,keepContent "
-					+ "FROM keepAnimal2";
+			String sql="SELECT aano,adoptStatus,adoptTitle,adoptWriter,"
+					+ "adoptRegDate,adoptImage,adoptContent "
+					+ "FROM adoptAnimal";
 //			ps=conn.prepareStatement(sql);
 			ps.setInt(1, start);
 			ps.setInt(2, end);
@@ -72,15 +72,15 @@ public class keepAnimal2DAO {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
-				keepAnimal2VO vo=new keepAnimal2VO();
-				vo.setKano(rs.getInt(1));
-				vo.setKeepLoc(rs.getString(2));
-				vo.setKeepTitle(rs.getString(3));
-				vo.setKeepWriter(rs.getString(4));
-				vo.setKeepRegDate(rs.getString(5));
-				vo.setKeepFoundLoc(rs.getString(6));
-				vo.setKeepImage(rs.getString(7));
-				vo.setKeepContent(rs.getString(8));
+				adoptAnimalVO vo=new adoptAnimalVO();
+				vo.setAano(rs.getInt(1));
+				vo.setAdoptLoc(rs.getString(2));
+				vo.setAdoptStatus(rs.getString(3));
+				vo.setAdoptTitle(rs.getString(4));
+				vo.setAdoptWriter(rs.getString(5));
+				vo.setAdoptRegdate(rs.getString(6));
+				vo.setAdoptImage(rs.getString(7));
+				vo.setAdoptContent(rs.getString(8));
 				
 				list.add(vo);
 			}
@@ -96,13 +96,13 @@ public class keepAnimal2DAO {
 		return list;
 	}
 	// 총페이지 
-	public int keepAnimal2TotalPage()
+	public int adoptAnimalTotalPage()
 	{
 		int total=0;
 		try
 		{
 			getConnection();
-			String sql="SELECT CEIL(COUNT(*)/10.0) FROM keepAnimal2";
+			String sql="SELECT CEIL(COUNT(*)/10.0) FROM adoptAnimal";
 			ps=conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
@@ -118,20 +118,20 @@ public class keepAnimal2DAO {
 		}
 		return total;
 	}
-	public void keepAnimal2Insert(keepAnimal2VO vo)
+	public void adoptAnimalInsert(adoptAnimalVO vo)
 	{
 		try
 		{
 		getConnection();
-		String sql="INSERT INTO keepAnimal2 VALUES(keepAnimal2_kano_seq.nextval,?,?,?,?,?,?,?)";
+		String sql="INSERT INTO adoptAnimal VALUES(adoptAnimal_aano_seq.nextval,?,?,?,?,?,?,?)";
 		ps=conn.prepareStatement(sql);
-		ps.setString(1, vo.getKeepLoc());
-		ps.setString(2, vo.getKeepTitle());
-		ps.setString(3, vo.getKeepWriter());
-		ps.setString(4, vo.getKeepRegDate());
-		ps.setString(5, vo.getKeepFoundLoc());
-		ps.setString(6, vo.getKeepImage());
-		ps.setString(7, vo.getKeepContent());
+		ps.setString(1, vo.getAdoptLoc());
+		ps.setString(2, vo.getAdoptStatus());
+		ps.setString(3, vo.getAdoptTitle());
+		ps.setString(4, vo.getAdoptWriter());
+		ps.setString(5, vo.getAdoptRegdate());
+		ps.setString(6, vo.getAdoptImage());
+		ps.setString(7, vo.getAdoptContent());
 
 		ps.executeUpdate();
 		}catch(Exception ex)

@@ -6,6 +6,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import com.sist.dao.keepAnimal2DAO;
 import com.sist.vo.keepAnimal2VO;
 
 public class keepAnimal2Main {
@@ -20,7 +21,7 @@ public class keepAnimal2Main {
 		{
 		Document doc=Jsoup.connect("https://singlesumer.com/protect/page/"+k).get();
 		Elements link=doc.select("td.title a.hx"); // 상세 미완 링크
-//		System.out.println(link);
+		System.out.println(link);
 		// 한개VO => 고유번호,지역,제목,글쓴이,날짜,발견장소,사진,내용 (댓글기능)
 		
 		// 지역 
@@ -82,13 +83,12 @@ public class keepAnimal2Main {
 			kvo.setKeepContent(kcontent2); // 내용 VO
 //			System.out.println(kvo.getKeepContent());
 			
+			keepAnimal2DAO dao=new keepAnimal2DAO();
+			
+			dao.keepAnimal2Insert(kvo);
+			
 		}
-		
-		
-		
-		
-		
-		
+		System.out.println("Save end...");
 		}catch(Exception ex) {}
 		}
 	}
