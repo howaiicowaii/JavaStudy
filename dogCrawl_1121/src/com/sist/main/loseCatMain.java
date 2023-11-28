@@ -1,16 +1,22 @@
 package com.sist.main;
 
+import java.util.ArrayList;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import com.sist.dao.loseCatDAO;
 import com.sist.vo.loseAniDetailVO;
 import com.sist.vo.loseAniVO;
+import com.sist.vo.loseCatVO;
 
 public class loseCatMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList<String> list=new ArrayList<String>();
+		
 		for(int k=2;k<=3;k++)
 		{
 		try
@@ -34,12 +40,18 @@ public class loseCatMain {
 			{
 				loseAniVO catvo=new loseAniVO();
 				loseAniDetailVO catvo2=new loseAniDetailVO();
+				loseCatVO cvo=new loseCatVO();
 				
-				catvo.setSub(sub.get(i+1).text());
-				catvo.setContent(content.get(i).text());
-				catvo.setImage(image.get(i).attr("src"));
-				String ii="http://www.angel.or.kr"+catvo.getImage().substring(1);
-				catvo.setImage(ii); // -- 이게 목록 이미지 VO
+				
+//				catvo.setSub(sub.get(i+1).text());
+				cvo.setCtitle(sub.get(i+1).text()); // 제목 VO
+
+//				catvo.setContent(content.get(i).text());
+				cvo.setCinfo(content.get(i).text()); // 제목 아래 내용 VO
+				
+				cvo.setCimage(image.get(i).attr("src"));
+				String img="http://www.angel.or.kr"+cvo.getCimage().substring(1);
+				cvo.setCimage(img); // -- 이미지 VO
 				
 				String sublink=link.get(i).attr("href");
 //				System.out.println(sublink);
@@ -48,26 +60,6 @@ public class loseCatMain {
 				
 				Document doc2=Jsoup.connect(sublink2).get();
 				
-//				상세보기 - 위 제목,	정보 + 고유번호 
-				// 고유번호 -> 겹쳐서 나오는 값들 있어서 미뤄놓기..
-//				Elements ldnoo=doc2.select("div.main div.specials div.gallery");
-//				System.out.println(ldnoo);
-				
-				// 상세 이미지 3개 뽑아야 한다
-				
-				// 제목 Done
-				Elements titleDet=doc2.select("div.main h2.style");
-				String posterr=titleDet.text();
-				String detatitle=posterr.substring(posterr.indexOf("("));
-				catvo2.setTitle(detatitle);
-				
-				// 글 정보 Done
-				Elements infoo=doc2.select("div.main div.about-info p.para");
-//				System.out.println(infoo);
-				String info=infoo.text();
-//				System.out.println(info); // info = 글 정보 
-				catvo2.setInfo(info); // 상세 제목 아래 info VO
-				
 				// 실종동물 - 상세보기 4개
 				Elements detaAni=doc2.select("div.main div.about-us table.table-hover tr");
 //				System.out.println(detaAni);
@@ -75,19 +67,29 @@ public class loseCatMain {
 //				System.out.println(anid);
 				String first=anid.substring(anid.indexOf("동물")+3,anid.indexOf("날짜")-2);
 //				System.out.println(first); // fisrt => 상세보기 첫줄
-				catvo2.setLoseinfo(first); // 상세 실종동물 VO
+//				catvo2.setLoseinfo(first); 
+				cvo.setcLoseInfo(first); // 상세 실종동물 VO
 				
 				String second=anid.substring(anid.indexOf("날짜")+3,anid.indexOf("장소")-2);
 //				System.out.println(second); // second => 상세보기 둘째줄 
-				catvo2.setLosedate(second); // 상세 실종날짜 VO
+//				catvo2.setLosedate(second);
+				cvo.setcLoseDate(second); // 상세 실종날짜 VO
+				
 				
 				String third=anid.substring(anid.indexOf("장소")+3,anid.indexOf("연락처"));
 //				System.out.println(third); // third => 상세보기 셋째줄 
-				catvo2.setLoseloc(third); // 상세 실종장소 VO
+//				catvo2.setLoseloc(third); 
+				cvo.setcLoseLoc(third); // 상세 실종장소 VO
+				
 				
 				String fourth=anid.substring(anid.indexOf("특이사항")+5);
 //				System.out.println(fourth);
-				catvo2.setFeature(fourth); // 상세 특이사항 VO
+//				catvo2.setFeature(fourth); 
+				cvo.setcFeature(fourth); // 상세 특이사항 VO
+				
+				loseCatDAO dao=new loseCatDAO();
+				
+				dao.loseCatInsert(cvo);
 				
 				
 			}
